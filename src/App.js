@@ -1,17 +1,22 @@
 //应用的根组件
 import React,{Component} from "react"//只要定义组件必须引入
-import { Button ,message } from 'antd'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import Login from "./pages/login/login"
+import Admin from "./pages/admin/admin"
+import Manage from "./pages/manage/manage"
 
 export default class App extends Component{
 
-    info1 = () => {
-        message.info('This is a normal message');
-      }
-
-    render()//渲染
-    {
-
-        return <Button type="primary" onClick={this.info1}  >Primary Button</Button>//创建虚拟DOM对象
-
+    render(){
+        return(
+            <BrowserRouter>
+            <Switch>//只匹配其中一个
+            <Route path='/login' component={Login}/>
+            <Route path='/admin' component={Admin}/>
+            <Route path='/manage' component={Manage}/>
+            </Switch>
+            </BrowserRouter>
+        )
     }
 }
+

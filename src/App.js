@@ -4,6 +4,8 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import Login from "./pages/login/login"
 import Admin from "./pages/admin/admin"
 import Manage from "./pages/manage/manage"
+import Shopping from "./pages/shopping/shopping"
+import Userinfo from "./pages/userinfo/userinfo"
 
 export default class App extends Component{
 
@@ -14,6 +16,8 @@ export default class App extends Component{
             <Route path='/login' component={Login}/>
             <Route path='/admin' component={Admin}/>
             <Route path='/manage' component={Manage}/>
+            <Route path='/shopping' component={Shopping}/>
+            <Route path='/userinfo' component={Userinfo}/>
             </Switch>
             </BrowserRouter>
         )

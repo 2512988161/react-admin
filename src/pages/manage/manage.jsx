@@ -50,7 +50,7 @@ return (
     <Card
         className="manage-funcs-card"
         hoverable
-        style={{ width: 180 }}
+        style={{ width: 180}}
         cover={<img alt="example" src={face} />}>
         <Meta title="面型分析" description="分析面型" />
     </Card></a>
@@ -66,7 +66,7 @@ return (
     <Card
         className="manage-funcs-card"
         hoverable
-        style={{ width:  180}}
+        style={{width: 180 }}
         cover={<img alt="example" src={brain} />}>
         <Meta title="三维头影测量" description="测量三维投影" />
     </Card></a>

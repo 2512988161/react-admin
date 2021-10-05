@@ -15,17 +15,17 @@ return (
     <div className="userinfo">
         <header className="userinfo-headerl">
                 <img src={logo} alt='logo' size='6px'/>
-                <h1>颌面部智能定点测量系统 </h1>
+                <a href="/manage">颌面部智能定点测量系统 </a>
                  
         </header>
         <div className="userinfo-headerr">
-        <img src={help} alt='help' size='20px' href="https://sm.ms/image/mMuaiIPnstLbJj1"/>
+        <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1"><img src={help} alt='help' size='20px'/></a>
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1">帮助</a>
-        <img src={messag} alt='messag' size='20px'/>
+        <a className="guide"><img src={messag} alt='messag' size='20px'/></a>
         <a className="guide">消息</a>
-        <img src={shop} alt='shop' size='20px' href="/userinfo"/>
+        <a className="guide" href='/shopping'><img src={shop} alt='shop' size='20px' /></a>
         <a className="guide" href='/shopping'>购买</a>
-        <img src={userimg} alt='userimg' size='20px'/>
+        <a className="guide" href="/userinfo"><img src={userimg} alt='userimg' size='20px'/></a>
         <a className="guide" href="/userinfo">用户</a>
         </div>
 

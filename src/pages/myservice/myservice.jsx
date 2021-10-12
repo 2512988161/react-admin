@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-import './shopping.less'
+import './myservice.less'
 import logo from './images/logo.svg'
 import help from './images/帮助.svg'
 import messag from './images/消息.svg'
@@ -15,13 +15,11 @@ import sharptooth from './images/sharptooth.svg'
 import brain from './images/brain.svg'
 import Userinfo from '../userinfo/userinfo'
 import Manage from '../manage/manage'
-import Myservice from '../myservice/myservice';
-
 const { SubMenu } = Menu;
   
-export default class Shopping extends Component {
+export default class Myservice extends Component {
     state = {
-        current: 'products',
+        current: 'myserv',
       };
     handleClick = e => {
         console.log('click ', e);
@@ -51,7 +49,7 @@ export default class Shopping extends Component {
             <Menu.Item key="products" icon={<MailOutlined />} className="shopping-navi-button">
                 购买产品
             </Menu.Item>
-            <Menu.Item key="myserv" icon={<MailOutlined />} className="shopping-navi-button" href="/myservice">
+            <Menu.Item key="myserv" icon={<MailOutlined />} className="shopping-navi-button">
                 我的服务
             </Menu.Item>
             <Menu.Item key="myrecord" icon={<MailOutlined />} className="shopping-navi-button">

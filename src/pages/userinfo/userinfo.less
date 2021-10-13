@@ -38,8 +38,38 @@
             img{height: 18px;margin-left:10px;}
         }
     }
-   
+   .userinfo-item{
+       margin-top: 80px;
+    display: flex;
+    width: 100%;
+    .manage-funcs-card{ 
+        width: 20%;
+        margin-left: 2%}
+    position: absolute;
 
+   }
+   .dynamic-delete-button {
+    position: relative;
+    top: 4px;
+    margin: 0 8px;
+    color: #999;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .dynamic-delete-button:hover {
+    color: #777;
+  }
+  .dynamic-delete-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+    [data-theme="dark"] .dynamic-delete-button {
+      color: rgba(255,255,255,.45);
+    }
+    [data-theme="dark"] .dynamic-delete-button:hover {
+      color: rgba(255,255,255,.65);
+    }
 
     }
     

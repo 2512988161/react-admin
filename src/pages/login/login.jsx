@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './login.less'
-import logo from './images/logo.svg'
+import logo from '../images/logo.svg'
 import { Form, Input, Button, Icon } from 'antd';
 import {Link,BrowserRouter} from 'react-router-dom'
 import Manage from '../manage/manage'
@@ -78,7 +78,7 @@ return (
           span: 16,
         }}
       >
-        <Button type="primary" htmlType="submit" className="login-form-buttom" href="/manage">
+        <Button type="primary" htmlType="submit" className="login-form-buttom" href="/manage" >
           Submit
         </Button>
       </Form.Item>

@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import './shopping.less'
-import logo from './images/logo.svg'
-import help from './images/帮助.svg'
-import messag from './images/消息.svg'
-import shop from './images/购买.svg'
-import me from './images/me.png'
-import userimg from './images/用户.svg'
-import skull from './images/skull.svg'
-import face from './images/face.svg'
-import teeth from './images/teeth.svg'
-import sharptooth from './images/sharptooth.svg'
-import brain from './images/brain.svg'
+import logo from '../images/logo.svg'
+import help from '../images/帮助.svg'
+import messag from '../images/消息.svg'
+import shop from '../images/购买.svg'
+import me from '../images/me.png'
+import userimg from '../images/用户.svg'
+import skull from '../images/skull.svg'
+import face from '../images/face.svg'
+import teeth from '../images/teeth.svg'
+import sharptooth from '../images/sharptooth.svg'
+import brain from '../images/brain.svg'
 import Userinfo from '../userinfo/userinfo'
 import Manage from '../manage/manage'
 import Myservice from '../myservice/myservice';
@@ -173,7 +173,9 @@ export default class Shopping extends Component {
         <div className="shopping-navi">
         
         <Card
-          style={{ width: '100%' }}
+
+        
+          // style={{ width: '100%' }}
           tabList={tabListNoTitle}
           activeTabKey={this.state.noTitleKey}
           onTabChange={key => {

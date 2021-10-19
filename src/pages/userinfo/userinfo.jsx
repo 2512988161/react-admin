@@ -9,13 +9,19 @@ import userimg from '../images/用户.svg'
 import Shopping from '../shopping/shopping'
 import Manage from '../manage/manage'
 import { Checkbox, Row, Col,Select,Collapse ,Avatar, Image,Form, Input, Button } from 'antd';
-import { Radio } from 'antd';
+import { Radio,Popover } from 'antd';
+import wechat from '../images/wechat.png'
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 const { Panel } = Collapse;
 function onChange(checkedValues) {
     console.log('checked = ', checkedValues);
   }
-
+  const content = (
+    <div className="wechat">
+      <img src={wechat} alt='wechat' width='300'/>
+    </div>
+  );
+  const text = <span>要获取帮助,请扫描下方二维码加我微信</span>;
 export default class Userinfo extends Component {
    
 render () {
@@ -28,8 +34,10 @@ return (
                  
         </header>
         <div className="userinfo-headerr">
+        <Popover className="guide" placement="bottom" title={text} content={ content} trigger="click">
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1"><img src={help} alt='help' size='20px'/></a>
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1">帮助</a>
+      </Popover>
         <a className="guide"><img src={messag} alt='messag' size='20px'/></a>
         <a className="guide">消息</a>
         <a className="guide" href='/shopping'><img src={shop} alt='shop' size='20px' /></a>

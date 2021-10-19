@@ -4,6 +4,7 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import Login from "./pages/login/login"
 import Admin from "./pages/admin/admin"
 import Manage from "./pages/manage/manage"
+import Fmanage from "./pages/fmanage/fmanage"
 import Shopping from "./pages/shopping/shopping"
 import Userinfo from "./pages/userinfo/userinfo"
 import Myservice from "./pages/myservice/myservice"
@@ -17,6 +18,7 @@ export default class App extends Component{
             <Route path='/login' component={Login}/>
             <Route path='/admin' component={Admin}/>
             <Route path='/manage' component={Manage}/>
+            <Route path='/fmanage' component={Fmanage}/>
             <Route path='/shopping' component={Shopping}/>
             <Route path='/shopping:myservice' component={Myservice}/>
             <Route path='/userinfo' component={Userinfo}/>

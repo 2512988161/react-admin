@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import './shopping.less'
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+
 import logo from '../images/logo.svg'
 import help from '../images/帮助.svg'
 import messag from '../images/消息.svg'
@@ -12,17 +13,18 @@ import face from '../images/face.svg'
 import teeth from '../images/teeth.svg'
 import sharptooth from '../images/sharptooth.svg'
 import brain from '../images/brain.svg'
+
 import Userinfo from '../userinfo/userinfo'
 import Manage from '../manage/manage'
 import Myservice from '../myservice/myservice';
 import { Collapse ,Card,Button} from 'antd';
 import { Descriptions, Badge } from 'antd';
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space ,Popover} from 'antd';
 import { Input } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
+import wechat from '../images/wechat.png'
 const { RangePicker } = DatePicker;
 const { Search } = Input;
-
 const suffix = (
   <AudioOutlined
     style={{
@@ -31,7 +33,12 @@ const suffix = (
     }}
   />
 );
-
+const content = (
+  <div className="wechat">
+    <img src={wechat} alt='wechat' width='300'/>
+  </div>
+);
+const text = <span>要获取帮助,请扫描下方二维码加我微信</span>;
 const onSearch = value => console.log(value);
 function onChange(value, dateString) {
   console.log('Selected Time: ', value);
@@ -161,8 +168,10 @@ export default class Shopping extends Component {
                 <a href="/manage">颌面部智能定点测量系统 </a>  
         </header>
         <div className="shopping-headerr">
+        <Popover className="guide" placement="bottom" title={text} content={ content} trigger="click">
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1"><img src={help} alt='help' size='20px'/></a>
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1">帮助</a>
+      </Popover>
         <a className="guide"><img src={messag} alt='messag' size='20px'/></a>
         <a className="guide">消息</a>
         <a className="guide" href='/shopping'><img src={shop} alt='shop' size='20px' /></a>

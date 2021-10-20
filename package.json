@@ -26,6 +26,11 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module", 
+      "allowImportExportEverywhere": true 
+    },
     "extends": [
       "react-app",
       "react-app/jest"

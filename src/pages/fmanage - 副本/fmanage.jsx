@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Card ,Popover,Button} from 'antd';
-import './manage.less'
+import './fmanage.less'
 import logo from '../images/logo.svg'
 import help from '../images/帮助.svg'
 import messag from '../images/消息.svg'
@@ -17,7 +17,6 @@ import wechat from '../images/wechat.png'
 
 import Userinfo from '../userinfo/userinfo'
 import Shopping from '../shopping/shopping'
-import Fmanage from '../fmanage/fmanage';
 const { Meta } = Card;
 const content = (
     <div className="wechat">
@@ -25,16 +24,16 @@ const content = (
     </div>
   );
 const text = <span>要获取帮助,请扫描下方二维码加我微信</span>;
-export default class Manage extends Component {
+export default class Fmanage extends Component {
 render () {
 return (
-    <div className="manage">
-        <header className="manage-headerl">
+    <div className="fmanage">
+        <header className="fmanage-headerl">
                 <img src={logo} alt='logo' size='6px'/>
                 <a href="/manage">颌面部智能定点测量系统 </a>
                 
         </header>
-        <div className="manage-headerr">
+        <div className="fmanage-headerr">
         <Popover className="guide" placement="bottom" title={text} content={ content} trigger="click">
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1"><img src={help} alt='help' size='20px'/></a>
         <a className="guide" href="https://sm.ms/image/mMuaiIPnstLbJj1">帮助</a>
@@ -46,48 +45,10 @@ return (
         <a className="guide" href="/userinfo"><img src={userimg} alt='userimg' size='20px'/></a>
         <a className="guide" href="/userinfo">用户</a>
         </div>
-        <div className="manage-funcs">
-    <a href="/fmanage" className="manage-funcs-card"><Card
-        
-        hoverable
-        style={{ width: 180 }}
-        cover={<img alt="example" src={skull} />}>
-        <Meta title="侧位片投影测量" description="测量侧位片投影" />
-    </Card></a>
-    <a href="/fmanage" className="manage-funcs-card">
-    <Card
-        className="manage-funcs-card"
-        hoverable
-        style={{ width: 180}}
-        cover={<img alt="example" src={face} />}>
-        <Meta title="面型分析" description="分析面型" />
-    </Card></a>
-    <a href="/userinfo" className="manage-funcs-card">
-    <Card
-        className="manage-funcs-card"
-        hoverable
-        style={{ width: 180 }}
-        cover={<img alt="example" src={teeth} />}>
-        <Meta title="磨牙定点测量" description="测量磨牙定点" />
-    </Card></a>
-    <a href="/userinfo" className="manage-funcs-card">
-    <Card
-        className="manage-funcs-card"
-        hoverable
-        style={{width: 180 }}
-        cover={<img alt="example" src={brain} />}>
-        <Meta title="三维头影测量" description="测量三维投影" />
-    </Card></a>
-    <a href="/userinfo" className="manage-funcs-card">
-    <Card
-        className="manage-funcs-card"
-        hoverable
-        style={{ width: 180 }}
-        cover={<img alt="example" src={sharptooth} />}>
-        <Meta title="尖牙阻生定点测量" description="测量尖牙阻生定点" />
-    </Card></a>
+        <div className="fmanage-funcs">
+   
     
-    </div>
+        </div>
     </div>
     
 )

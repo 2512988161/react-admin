@@ -16,8 +16,7 @@ import brain from '../images/brain.svg'
 
 import Userinfo from '../userinfo/userinfo'
 import Manage from '../manage/manage'
-import Myservice from '../myservice/myservice';
-import { Collapse ,Card,Button} from 'antd';
+import { List,Card,Button} from 'antd';
 import { Descriptions, Badge } from 'antd';
 import { DatePicker, Space ,Popover} from 'antd';
 import { Input } from 'antd';
@@ -64,59 +63,94 @@ const tabListNoTitle = [
       tab: '购买记录',
     },
   ];
-  
+  const data = [
+    {
+      title: '产品名称',
+    },
+    {
+      title: '剩余次数',
+    },
+    {
+      title: '已用次数',
+    },
+    {
+      title: '有效期',
+    },
+  ];
   const contentListNoTitle = {
     article: <p>
 <p className="anypruc">
 <Card className="prucs"
     hoverable
-    style={{ width: 160 }}
-    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+    // width="20"
+    // style={{ width: 160 }}
+    cover={<img alt="skull" src={skull} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title="侧位片投影测量" description="
+    自动定点600次
+    影像云储存600张
+    侧位片测量分析
+    侧位片重叠" />
   </Card>
   <Card className="prucs"
     hoverable
-    style={{ width: 160 }}
-    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+    
+    // style={{ width: 160},{size:1000}}
+  cover={<img alt="face" src={face} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title="面型分析" description="自动定点600次
+    影像云储存600张
+    面型分析
+    侧位片、侧面照重叠" />
   </Card>
   <Card className="prucs"
     hoverable
-    style={{ width: 160 }}
-    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+    // style={{ width: 160 }}
+    cover={<img alt="teeth" src={teeth} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title="面型分析" description="自动定点600次
+    影像云储存600张
+    面型分析
+    侧位片、侧面照重叠"/>
   </Card>
   <Card className="prucs"
     hoverable
-    style={{ width:160 }}
-    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+    // style={{ width:160 }}
+    cover={<img alt="brain" src={brain} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title="面型分析" description="自动定点600次
+    影像云储存600张
+    面型分析
+    侧位片、侧面照重叠" />
   </Card>
   <Card className="prucs"
     hoverable
-    style={{ width:160 }}
-    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+    // style={{ width:160 }}
+    cover={<img alt="sharptooth" src={sharptooth} />}
   >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
+    <Meta title="面型分析" description="自动定点600次
+    影像云储存600张
+    面型分析
+    侧位片、侧面照重叠"/>
   </Card></p>
   <Button type="primary">购买</Button>
     </p>
     ,
 
 
-    app: <p>
-<Descriptions title="" layout="vertical" bordered>
-    <Descriptions.Item label="产品名称">面型分析</Descriptions.Item>
-    <Descriptions.Item label="剩余次数">1</Descriptions.Item>
-    <Descriptions.Item label="已用次数">0</Descriptions.Item>
-    <Descriptions.Item label="有效期">2025-04-24 18:00:00</Descriptions.Item>
-  </Descriptions>
-
+    app: <p className="myservice">
+  <List
+    grid={{ gutter: 16, column: 4 }}
+    dataSource={data}
+    renderItem={item => (
+      <List.Item>
+        <Card title={item.title}>的期望顶起顶起顶起我</Card>
+      </List.Item>
+    )}
+  />
     </p>,
+
+
     project: <p>
        <Space direction="vertical" size={12}>
     <RangePicker

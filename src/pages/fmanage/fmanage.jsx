@@ -1,5 +1,5 @@
 import React, {Component ,useState} from 'react'
-import { Card ,Popover,Button,Form,Col,Row,Input,DatePicker,Select} from 'antd';
+import { Card ,Popover,Button,Form,Col,Row,Input,DatePicker,Select,Table} from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import {  Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
@@ -53,7 +53,106 @@ const onSearch = value => {console.log(value)}
   }
 
 
+  const columns = [
+    {
+      title: '患者姓名',
+      dataIndex: 'name',
+      filters: [
+        {
+          text: 'Joe',
+          value: 'Joe',
+        },
+        {
+          text: 'Jim',
+          value: 'Jim',
+        },
+        {
+          text: 'Submenu',
+          value: 'Submenu',
+          children: [
+            {
+              text: 'Green',
+              value: 'Green',
+            },
+            {
+              text: 'Black',
+              value: 'Black',
+            },
+          ],
+        },
+      ],
+      // specify the condition of filtering result
+      // here is that finding the name started with `value`
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      sorter: (a, b) => a.name.length - b.name.length,
+      sortDirections: ['descend'],
+    },
+    {
+      title:'年龄',
+      dataIndex:'age',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.age - b.age,
+    },
 
+    {
+      title: '初诊时间',
+      dataIndex: 'firsttime',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.firsttime - b.firsttime,
+    },
+    {
+      title:'治疗医生',
+      dataIndex:'dct',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.dct - b.dct,
+    },
+    {
+      title: '治疗机构',
+      dataIndex: 'dep',
+      filters: [
+        {
+          text: '华西',
+          value: '华西',
+        },
+        {
+          text: '省医院',
+          value: '省医院',
+        },
+      ],
+      onFilter: (value, record) => record.address.indexOf(value) === 0,
+    },
+  ];
+  
+  const data = [
+    {
+      key: '1',
+      name: 'John Brown',
+      age: 32,
+      address: 'New York No. 1 Lake Park',
+    },
+    {
+      key: '2',
+      name: 'Jim Green',
+      age: 42,
+      address: 'London No. 1 Lake Park',
+    },
+    {
+      key: '3',
+      name: 'Joe Black',
+      age: 32,
+      address: 'Sidney No. 1 Lake Park',
+    },
+    {
+      key: '4',
+      name: 'Jim Red',
+      age: 32,
+      address: 'London No. 2 Lake Park',
+    },
+  ];
+  
+  function onChange(pagination, filters, sorter, extra) {
+    console.log('params', pagination, filters, sorter, extra);
+  }
 
 export default class Fmanage extends Component {
   
@@ -163,9 +262,9 @@ return (<div className="global">
 
       <div>
 
+      <Table columns={columns} dataSource={data} onChange={onChange} />
 
 
-        
       </div>
 
         </div>

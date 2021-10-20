@@ -1,6 +1,6 @@
 import React, {Component ,useState} from 'react'
 import { Card ,Popover,Button,Form,Col,Row,Input,DatePicker,Select,Table} from 'antd';
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined,WomanOutlined,ManOutlined ,FileOutlined } from '@ant-design/icons';
 import {  Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 
@@ -21,6 +21,7 @@ import wechat from '../images/wechat.png'
 
 import Userinfo from '../userinfo/userinfo'
 import Shopping from '../shopping/shopping'
+import Dmanage from '../dmanage/dmanage'
 
 const { Option } = Select;
 const { Meta } = Card;
@@ -40,6 +41,7 @@ const suffix = (
     }}
   />
 );
+
 
 const onSearch = value => {console.log(value)}
 
@@ -88,6 +90,15 @@ const onSearch = value => {console.log(value)}
       sortDirections: ['descend'],
     },
     {
+
+      title: '患者ID',
+      dataIndex: 'ID',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.ID - b.ID,
+
+
+    },
+    {
       title:'年龄',
       dataIndex:'age',
       defaultSortOrder: 'descend',
@@ -121,33 +132,83 @@ const onSearch = value => {console.log(value)}
       ],
       onFilter: (value, record) => record.address.indexOf(value) === 0,
     },
+    {
+      title: '数据管理',
+      dataIndex: 'data',
+     
+    },
+    {
+      title: '操作',
+      dataIndex: 'oprt',
+
+    },
+    {
+      title: '性别',
+      dataIndex: 'sex',
+      
+    },
+
   ];
   
   const data = [
     {
       key: '1',
       name: 'John Brown',
+      ID:'001',
       age: 32,
-      address: 'New York No. 1 Lake Park',
+      firsttime: '2021-09-21',
+      dct: '王',
+      dep: '华西',
+      data:<div><a href='/dmanage'><button href='/dmanage'><FileOutlined /></button></a></div> ,
+      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
+      sex:'male' ,
     },
     {
       key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      name: '李响',
+      ID:'002',
+      age: 15,
+      firsttime: '2021-09-21',
+      dct: '李',
+      dep: '华西',
+      data: <button><FileOutlined /></button>,
+      sex:'male',
+      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
     },
     {
       key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
+      name: 'John Brown',
+      ID:'003',
+      age: 34,
+      firsttime: '2021-09-21',
+      dct: '赵',
+      dep: '省医院',
+      data: <button><FileOutlined /></button>,
+      oprt:<div><button>编辑 </ button> <button> 删除</button></div>,
     },
     {
       key: '4',
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
+      name: 'John Brown',
+      ID:'004',
+      age: 24,
+      firsttime: '2021-09-21',
+      dct: '钱',
+      dep: '华西',
+      data: <button><FileOutlined /></button>,
+      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
     },
+    {
+      key: '5',
+      name: 'John Brown',
+      ID:'005',
+      age: 45,
+      firsttime: '2021-09-21',
+      dct: '李',
+      dep: '华西',
+      data:<button><FileOutlined /></button>,
+      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
+    },
+    
   ];
   
   function onChange(pagination, filters, sorter, extra) {

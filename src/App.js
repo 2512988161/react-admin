@@ -5,6 +5,7 @@ import Login from "./pages/login/login"
 import Admin from "./pages/admin/admin"
 import Manage from "./pages/manage/manage"
 import Fmanage from "./pages/fmanage/fmanage"
+import Dmanage from "./pages/dmanage/dmanage"
 import Shopping from "./pages/shopping/shopping"
 import Userinfo from "./pages/userinfo/userinfo"
 
@@ -18,6 +19,7 @@ export default class App extends Component{
             <Route path='/admin' component={Admin}/>
             <Route path='/manage' component={Manage}/>
             <Route path='/fmanage' component={Fmanage}/>
+            <Route path='/dmanage' component={Dmanage}/>
             <Route path='/shopping' component={Shopping}/>
             <Route path='/userinfo' component={Userinfo}/>
 

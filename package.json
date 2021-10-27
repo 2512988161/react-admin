@@ -28,8 +28,8 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "parserOptions": {
-      "sourceType": "module", 
-      "allowImportExportEverywhere": true 
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
     },
     "extends": [
       "react-app",

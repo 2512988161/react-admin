@@ -1,77 +1,88 @@
-.dmanage{
-    width: 100%;
-    height: 100%;
-    // background-image: url('../images/feed-me.png');
-    background-size: 100% 100%;
-    background-color: black;
+.dmanage {
+  width: 100%;
+  height: 100%;
+  // background-image: url('../images/feed-me.png');
+  background-size: 100% 100%;
+  background-color: black;
+  display: flex;
+  .dmanage-headerl {
     display: flex;
-    .dmanage-headerl
-    {
-    display: flex;
-    align-items:center;
+    align-items: center;
     height: 60px;
     width: 62%;
     background-color: darkblue;
-    img{
-        height: 60px;
-        // width: 60px;
-       // margin: 0px px 20px 20px;
+    img {
+      height: 60px;
+      // width: 60px;
+      // margin: 0px px 20px 20px;
     }
-    a{
-    
-        color:rgb(206, 206, 80);
-        font-size:20px;
-        margin-top: 35px;
+    a {
+      color: rgb(206, 206, 80);
+      font-size: 20px;
+      margin-top: 35px;
     }
+  }
+  .dmanage-headerr {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .wechat {
+      width: 10%;
     }
-    .dmanage-headerr{
-        
-        display: flex;
-        flex-direction:row;
-        justify-content: flex-end;
-        .wechat{
-            width: 10%;
-           }
-        display: flex;
-        align-items:flex-end;
-        height: 60px;
-        width: 38%;
-        background-color:darkblue;
-        img{height: 18px;
-        }
-        .guide{
-            color: white;
-            height: 18px;  
-            display: flex;
-            align-items:flex-end;
-            img{height: 18px;margin-left:10px;}
-        }
+    display: flex;
+    align-items: flex-end;
+    height: 60px;
+    width: 38%;
+    background-color: darkblue;
+    img {
+      height: 18px;
     }
-
+    .guide {
+      color: white;
+      height: 18px;
+      display: flex;
+      align-items: flex-end;
+      img {
+        height: 18px;
+        margin-left: 10px;
+      }
     }
-    .dmanage-funcs{
-        background-color: black;
-        display: table-footer-group;
-        .dmanage-funcs-header{
-            display: flex;
-           
-            // .ant-card-body {
-            //     padding: 2px;
-            // }
-            .ant-card-head {
-                display: flex;
-                /* min-height: 2px; */
-                margin-bottom: -1px;
-                padding: 0 4px;
-                color: rgba(0, 0, 0, 0.85);
-                width: 70px;
-                font-weight: 500;
-                font-size: 6px;
-                background: transparent;
-                border-bottom: 1px solid #f0f0f0;
-                border-radius: 2px 2px 0 0;
-                height: 2px;
-            }
-        }
-        
+  }
+}
+.dmanage-funcs {
+  background-color: black;
+  display: table-footer-group;
+  .dmanage-funcs-header {
+    display: flex;
+    background-color: darkblue;
+    flex-direction: row;
+    height: 60px;
+    width: 300px;
+    .dmanage-funcs-header-item {
+      width: 60px;
+      height: 20px;
     }
+    // .ant-card-body {
+    //     padding: 2px;
+    // }
+    .ant-descriptions-item-label {
+      color: rgb(255 255 255 / 85%);
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1.5715;
+      text-align: start;
+    }
+    .ant-descriptions-item-content {
+      display: table-cell;
+      flex: 1 1;
+      color: rgb(252 251 251 / 85%);
+      font-size: 14px;
+      line-height: 1.5715;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .dmanage-funcs-header-item {
+      width: 20%;
+    }
+  }
+}

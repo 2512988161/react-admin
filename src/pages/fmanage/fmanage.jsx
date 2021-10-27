@@ -61,27 +61,27 @@ const onSearch = value => {console.log(value)}
       dataIndex: 'name',
       filters: [
         {
-          text: 'Joe',
-          value: 'Joe',
+          text: 'John',
+          value: 'John',
         },
         {
-          text: 'Jim',
-          value: 'Jim',
+          text: '李',
+          value: '李',
         },
-        {
-          text: 'Submenu',
-          value: 'Submenu',
-          children: [
-            {
-              text: 'Green',
-              value: 'Green',
-            },
-            {
-              text: 'Black',
-              value: 'Black',
-            },
-          ],
-        },
+        // {
+        //   text: 'Submenu',
+        //   value: 'Submenu',
+        //   children: [
+        //     {
+        //       text: 'Green',
+        //       value: 'Green',
+        //     },
+        //     {
+        //       text: 'Black',
+        //       value: 'Black',
+        //     },
+        //   ],
+        // },
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`
@@ -97,6 +97,11 @@ const onSearch = value => {console.log(value)}
       sorter: (a, b) => a.ID - b.ID,
 
 
+    },
+    {
+      title: '性别',
+      dataIndex: 'sex',
+      
     },
     {
       title:'年龄',
@@ -130,7 +135,7 @@ const onSearch = value => {console.log(value)}
           value: '省医院',
         },
       ],
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
+      onFilter: (value, record) => record.dep.indexOf(value) === 0,
     },
     {
       title: '数据管理',
@@ -142,11 +147,7 @@ const onSearch = value => {console.log(value)}
       dataIndex: 'oprt',
 
     },
-    {
-      title: '性别',
-      dataIndex: 'sex',
-      
-    },
+    
 
   ];
   

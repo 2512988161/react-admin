@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Card ,Popover,Button} from 'antd';
 import { Table, Tag, Space,List,card,Layout  ,Typography} from 'antd';
+import { Descriptions } from 'antd';
 import { RollbackOutlined,PlusOutlined } from '@ant-design/icons';
 import './dmanage.less'
 import logo from '../images/logo.svg'
@@ -79,23 +80,18 @@ return (<div>
         
     </div>
     
-
-
-     
-     
-        <button><PlusOutlined />新建</button>
-        
-  
+          
           <div className="dmanage-funcs">
         <span className="dmanage-funcs-header">
-     
-        
-  
-     
-  
+        <Descriptions>
+        <Descriptions.Item label="姓名"   className="dmanage-funcs-header-item">Zo</Descriptions.Item>
+        <Descriptions.Item label="性别"   className="dmanage-funcs-header-item">18000</Descriptions.Item>
+        <Descriptions.Item label="患者ID"   className="dmanage-funcs-header-item">Hang</Descriptions.Item>
+        <Descriptions.Item label="出生日期"   className="dmanage-funcs-header-item">empty</Descriptions.Item>
+        </Descriptions>
         <a href="/fmanage"><button><RollbackOutlined />患者管理</button></a>
         </span>
-
+        <button><PlusOutlined />新建</button>
 
         </div>
 

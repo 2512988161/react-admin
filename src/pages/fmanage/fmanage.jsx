@@ -25,10 +25,15 @@ import Dmanage from '../dmanage/dmanage'
 import axios from 'axios';
 
 
-   const data=[
-    axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145')
-   
-  ]
+
+    // componentDidMount() {
+    //   axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145')
+    //     .then(res => {
+    //       const data = res;
+          
+    //     })
+    // }
+const data1=[]
 
 const { Option } = Select;
 const { Meta } = Card;
@@ -55,8 +60,8 @@ const onSearch = value => {console.log(value)}
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    console.log(axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145'))
-  };
+    
+      };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -151,76 +156,36 @@ const onSearch = value => {console.log(value)}
 
     // },
     
-
   ];
   
-  // const data = [
-  //   {
-  //     key: '1',
-  //     name: 'John Brown',
-  //     ID:'001',
-  //     age: 32,
-  //     firsttime: '2021-09-21',
-  //     dct: '王',
-  //     dep: '华西',
-  //     data:<div><a href='/dmanage'><button href='/dmanage'><FileOutlined /></button></a></div> ,
-  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-  //     sex:'male' ,
-  //   },
-  //   {
-  //     key: '2',
-  //     name: '李响',
-  //     ID:'002',
-  //     age: 15,
-  //     firsttime: '2021-09-21',
-  //     dct: '李',
-  //     dep: '华西',
-  //     data: <button><FileOutlined /></button>,
-  //     sex:'male',
-  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-  //   },
-  //   {
-  //     key: '3',
-  //     name: 'John Brown',
-  //     ID:'003',
-  //     age: 34,
-  //     firsttime: '2021-09-21',
-  //     dct: '赵',
-  //     dep: '省医院',
-  //     data: <button><FileOutlined /></button>,
-  //     oprt:<div><button>编辑 </ button> <button> 删除</button></div>,
-  //   },
-  //   {
-  //     key: '4',
-  //     name: 'John Brown',
-  //     ID:'004',
-  //     age: 24,
-  //     firsttime: '2021-09-21',
-  //     dct: '钱',
-  //     dep: '华西',
-  //     data: <button><FileOutlined /></button>,
-  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-  //   },
-  //   {
-  //     key: '5',
-  //     name: 'John Brown',
-  //     ID:'005',
-  //     age: 45,
-  //     firsttime: '2021-09-21',
-  //     dct: '李',
-  //     dep: '华西',
-  //     data:<button><FileOutlined /></button>,
-  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-  //   },
-    
-  // ];
+  
   
   function onChange(pagination, filters, sorter, extra) {
     console.log('params', pagination, filters, sorter, extra);
   }
 
 export default class Fmanage extends Component {
-  
+   state = {
+    data: []
+  }
+  componentDidMount() {
+    axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145')
+      .then(res => { 
+        console.log(res.data.data[0])
+       
+        for(var i=0;i<res.data.data[1];i++){
+          res.data.data[0][i].treatmentDate=res.data.data[0][i].treatmentDate.slice(0,16)
+          //res.data.data[0]['treatmentDate']= res.data.data[0]['treatmentDate'].slice(4,6)
+          if(res.data.data[0][i].patientSex==0){res.data.data[0][i].patientSex="男"}
+        else{ res.data.data[0][i].patientSex="女"}
+      }
+        console.log(res.data.data[0])
+        var data = res.data.data[0];
+        this.setState({ data });
+      })
+  };
+ 
+
 render () {
   
 return (<div className="global">
@@ -327,7 +292,7 @@ return (<div className="global">
 
       <div>
 
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table columns={columns} dataSource={this.state.data} onChange={onChange} />
 
 
       </div>

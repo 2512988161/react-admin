@@ -4,8 +4,18 @@ import logo from '../images/logo.svg'
 import { Form, Input, Button, Icon } from 'antd';
 import {Link,BrowserRouter} from 'react-router-dom'
 import Manage from '../manage/manage'
+import axios from 'axios';
 
 const onFinish = (values) => {
+    axios.post('http://192.168.6.244:10000/api/auth/login',values).then(function(response){
+      console.log(response);
+      if(response.data.msg=="成功") {window.location.href="/manage"}
+      else{alert(response.data.msg)}
+    }).catch(function(error){
+
+      console.log(error)
+    })
+    
     console.log('Success:', values);
     // <BrowserRouter><link to="/manage">abouxasacascas</link></BrowserRouter>;
     // <Manage/>  
@@ -46,7 +56,7 @@ return (
     >
       <Form.Item
         label="Username"
-        name="username"
+        name="userName"
         rules={[
           {
             required: true,
@@ -78,7 +88,7 @@ return (
           span: 16,
         }}
       >
-        <Button type="primary" htmlType="submit" className="login-form-buttom" href="/manage" >
+        <Button type="primary" htmlType="submit" className="login-form-buttom"  >
           Submit
         </Button>
       </Form.Item>

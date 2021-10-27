@@ -22,6 +22,13 @@ import wechat from '../images/wechat.png'
 import Userinfo from '../userinfo/userinfo'
 import Shopping from '../shopping/shopping'
 import Dmanage from '../dmanage/dmanage'
+import axios from 'axios';
+
+
+   const data=[
+    axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145')
+   
+  ]
 
 const { Option } = Select;
 const { Meta } = Card;
@@ -48,6 +55,7 @@ const onSearch = value => {console.log(value)}
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
+    console.log(axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145'))
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -58,7 +66,7 @@ const onSearch = value => {console.log(value)}
   const columns = [
     {
       title: '患者姓名',
-      dataIndex: 'name',
+      dataIndex: 'patientName',
       filters: [
         {
           text: 'John',
@@ -92,7 +100,7 @@ const onSearch = value => {console.log(value)}
     {
 
       title: '患者ID',
-      dataIndex: 'ID',
+      dataIndex: '_id',
       defaultSortOrder: 'descend',
       sorter: (a, b) => a.ID - b.ID,
 
@@ -100,117 +108,112 @@ const onSearch = value => {console.log(value)}
     },
     {
       title: '性别',
-      dataIndex: 'sex',
+      dataIndex: 'patientSex',
       
     },
     {
       title:'年龄',
-      dataIndex:'age',
+      dataIndex:'patientAge',
       defaultSortOrder: 'descend',
       sorter: (a, b) => a.age - b.age,
     },
 
     {
       title: '初诊时间',
-      dataIndex: 'firsttime',
+      dataIndex: 'treatmentDate',
       defaultSortOrder: 'descend',
       sorter: (a, b) => a.firsttime - b.firsttime,
     },
-    {
-      title:'治疗医生',
-      dataIndex:'dct',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.dct - b.dct,
-    },
-    {
-      title: '治疗机构',
-      dataIndex: 'dep',
-      filters: [
-        {
-          text: '华西',
-          value: '华西',
-        },
-        {
-          text: '省医院',
-          value: '省医院',
-        },
-      ],
-      onFilter: (value, record) => record.dep.indexOf(value) === 0,
-    },
-    {
-      title: '数据管理',
-      dataIndex: 'data',
+    
+    // {
+    //   title: '治疗机构',
+    //   dataIndex: 'dep',
+    //   filters: [
+    //     {
+    //       text: '华西',
+    //       value: '华西',
+    //     },
+    //     {
+    //       text: '省医院',
+    //       value: '省医院',
+    //     },
+    //   ],
+    //   onFilter: (value, record) => record.dep.indexOf(value) === 0,
+    // },
+    // {
+    //   title: '数据管理',
+    //   dataIndex: 'data',
      
-    },
-    {
-      title: '操作',
-      dataIndex: 'oprt',
+    // },
+    // {
+    //   title: '操作',
+    //   dataIndex: 'oprt',
 
-    },
+    // },
     
 
   ];
   
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      ID:'001',
-      age: 32,
-      firsttime: '2021-09-21',
-      dct: '王',
-      dep: '华西',
-      data:<div><a href='/dmanage'><button href='/dmanage'><FileOutlined /></button></a></div> ,
-      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-      sex:'male' ,
-    },
-    {
-      key: '2',
-      name: '李响',
-      ID:'002',
-      age: 15,
-      firsttime: '2021-09-21',
-      dct: '李',
-      dep: '华西',
-      data: <button><FileOutlined /></button>,
-      sex:'male',
-      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-    },
-    {
-      key: '3',
-      name: 'John Brown',
-      ID:'003',
-      age: 34,
-      firsttime: '2021-09-21',
-      dct: '赵',
-      dep: '省医院',
-      data: <button><FileOutlined /></button>,
-      oprt:<div><button>编辑 </ button> <button> 删除</button></div>,
-    },
-    {
-      key: '4',
-      name: 'John Brown',
-      ID:'004',
-      age: 24,
-      firsttime: '2021-09-21',
-      dct: '钱',
-      dep: '华西',
-      data: <button><FileOutlined /></button>,
-      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-    },
-    {
-      key: '5',
-      name: 'John Brown',
-      ID:'005',
-      age: 45,
-      firsttime: '2021-09-21',
-      dct: '李',
-      dep: '华西',
-      data:<button><FileOutlined /></button>,
-      oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
-    },
+  // const data = [
+  //   {
+  //     key: '1',
+  //     name: 'John Brown',
+  //     ID:'001',
+  //     age: 32,
+  //     firsttime: '2021-09-21',
+  //     dct: '王',
+  //     dep: '华西',
+  //     data:<div><a href='/dmanage'><button href='/dmanage'><FileOutlined /></button></a></div> ,
+  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
+  //     sex:'male' ,
+  //   },
+  //   {
+  //     key: '2',
+  //     name: '李响',
+  //     ID:'002',
+  //     age: 15,
+  //     firsttime: '2021-09-21',
+  //     dct: '李',
+  //     dep: '华西',
+  //     data: <button><FileOutlined /></button>,
+  //     sex:'male',
+  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
+  //   },
+  //   {
+  //     key: '3',
+  //     name: 'John Brown',
+  //     ID:'003',
+  //     age: 34,
+  //     firsttime: '2021-09-21',
+  //     dct: '赵',
+  //     dep: '省医院',
+  //     data: <button><FileOutlined /></button>,
+  //     oprt:<div><button>编辑 </ button> <button> 删除</button></div>,
+  //   },
+  //   {
+  //     key: '4',
+  //     name: 'John Brown',
+  //     ID:'004',
+  //     age: 24,
+  //     firsttime: '2021-09-21',
+  //     dct: '钱',
+  //     dep: '华西',
+  //     data: <button><FileOutlined /></button>,
+  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
+  //   },
+  //   {
+  //     key: '5',
+  //     name: 'John Brown',
+  //     ID:'005',
+  //     age: 45,
+  //     firsttime: '2021-09-21',
+  //     dct: '李',
+  //     dep: '华西',
+  //     data:<button><FileOutlined /></button>,
+  //     oprt: <div><button>编辑 </ button> <button> 删除</button></div>,
+  //   },
     
-  ];
+  // ];
   
   function onChange(pagination, filters, sorter, extra) {
     console.log('params', pagination, filters, sorter, extra);

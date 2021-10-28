@@ -1,9 +1,9 @@
 import React, {Component ,useState} from 'react'
-import { Card ,Popover,Button,Form,Col,Row,Input,DatePicker,Select,Table} from 'antd';
+import { Modal , Card ,Popover,Button,Form,Input,DatePicker,Select,Table} from 'antd';
 import { PlusCircleOutlined,WomanOutlined,ManOutlined ,FileOutlined } from '@ant-design/icons';
 import {  Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
-
+import ReactDOM from 'react-dom';
 import './fmanage.less'
 import logo from '../images/logo.svg'
 import help from '../images/帮助.svg'
@@ -11,13 +11,7 @@ import messag from '../images/消息.svg'
 import shop from '../images/购买.svg'
 import me from '../images/me.png'
 import userimg from '../images/用户.svg'
-import skull from '../images/skull.svg'
-import face from '../images/face.svg'
-import teeth from '../images/teeth.svg'
-import sharptooth from '../images/sharptooth.svg'
-import brain from '../images/brain.svg'
 import wechat from '../images/wechat.png'
-
 
 import Userinfo from '../userinfo/userinfo'
 import Shopping from '../shopping/shopping'
@@ -33,8 +27,6 @@ import axios from 'axios';
           
     //     })
     // }
-const data1=[]
-
 const { Option } = Select;
 const { Meta } = Card;
 const content = (
@@ -148,7 +140,6 @@ const onSearch = value => {console.log(value)}
     // {
     //   title: '数据管理',
     //   dataIndex: 'data',
-     
     // },
     // {
     //   title: '操作',
@@ -164,15 +155,24 @@ const onSearch = value => {console.log(value)}
     console.log('params', pagination, filters, sorter, extra);
   }
 
+
+
+
 export default class Fmanage extends Component {
-   state = {
-    data: []
-  }
-  componentDidMount() {
+  state = {
+    data: [],
+    isModalVisible:false,
+  };
+
+handleOk  ()  {
+    this.setState({setIsModalVisible:true});
+  };
+
+componentDidMount() {
     axios.get('http://192.168.6.244:10000/api/cases/?dentistID=617916eeef41de498a358145')
       .then(res => { 
         console.log(res.data.data[0])
-       
+
         for(var i=0;i<res.data.data[1];i++){
           res.data.data[0][i].treatmentDate=res.data.data[0][i].treatmentDate.slice(0,16)
           //res.data.data[0]['treatmentDate']= res.data.data[0]['treatmentDate'].slice(4,6)
@@ -184,7 +184,8 @@ export default class Fmanage extends Component {
         this.setState({ data });
       })
   };
- 
+
+
 
 render () {
   
@@ -257,7 +258,7 @@ return (<div className="global">
 
       <Form.Item
       // label="治疗日期"
-       style={{ color: "white" }}
+style={{ color: "white" }}
         validateStatus="error"
        // help="Please select right date"
         //style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
@@ -283,12 +284,94 @@ return (<div className="global">
 
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" >
           search
         </Button>
       </Form.Item>
     </Form>
-    <Button type="primary"><PlusCircleOutlined />添加患者</Button>
+    <Button type="primary" onClick={() => this.setState({isModalVisible:true})} >
+        添加患者
+      </Button>
+      <Modal title="患者添加" visible={this.state.isModalVisible} onOk={() => this.setState({isModalVisible:false})} onCancel={() => this.setState({isModalVisible:false})}>
+        <Form
+      name="basic"
+      labelCol={{
+        span: 8,
+      }}
+      wrapperCol={{
+        span: 16,
+      }}
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
+      <Form.Item
+        label="患者姓名"
+        name="patientName"
+        rules={[
+          {
+            required: true,
+            message: '请输入患者姓名！',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="患者年龄"
+        name="patientAge"
+        rules={[
+          {
+            required: true,
+            message: '请输入患者年龄!',
+          },
+        ]}
+      >
+        <Input/>
+      </Form.Item>
+      <Form.Item
+        label="患者生日"
+        name="patientBirth"
+        rules={[
+          {
+            required: true,
+            message: '请选择患者生日!',
+          },
+        ]}
+      >
+        <DatePicker />
+      </Form.Item>
+      <Form.Item
+        label="初诊日期"
+        name="treatmentDate"
+        rules={[
+          {
+            required: true,
+            message: '请选择初诊日期!',
+          },
+        ]}
+      >
+        <DatePicker />
+      </Form.Item>
+
+      {/* <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      >
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item> */}
+    </Form>
+
+        
+      </Modal>
 
       <div>
 

@@ -18,7 +18,7 @@ import Userinfo from '../userinfo/userinfo'
 import Manage from '../manage/manage'
 import { List,Card,Button} from 'antd';
 import { Descriptions, Badge } from 'antd';
-import { DatePicker, Space ,Popover} from 'antd';
+import { DatePicker, Space ,Popover,Checkbox} from 'antd';
 import { Input } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import wechat from '../images/wechat.png'
@@ -80,18 +80,22 @@ const tabListNoTitle = [
   const contentListNoTitle = {
     article: <p>
 <p className="anypruc">
+    <Checkbox>3980/年
 <Card className="prucs"
     hoverable
     // width="20"
     // style={{ width: 160 }}
     cover={<img alt="skull" src={skull} />}
   >
+
     <Meta title="侧位片投影测量" description="
     自动定点600次
     影像云储存600张
     侧位片测量分析
     侧位片重叠" />
   </Card>
+ </Checkbox>
+<Checkbox> 3980/年
   <Card className="prucs"
     hoverable
     
@@ -103,6 +107,8 @@ const tabListNoTitle = [
     面型分析
     侧位片、侧面照重叠" />
   </Card>
+  </Checkbox>
+ <Checkbox>3980/年
   <Card className="prucs"
     hoverable
     // style={{ width: 160 }}
@@ -113,6 +119,8 @@ const tabListNoTitle = [
     面型分析
     侧位片、侧面照重叠"/>
   </Card>
+  </Checkbox>
+   <Checkbox>3980/年
   <Card className="prucs"
     hoverable
     // style={{ width:160 }}
@@ -122,7 +130,8 @@ const tabListNoTitle = [
     影像云储存600张
     面型分析
     侧位片、侧面照重叠" />
-  </Card>
+  </Card></Checkbox>
+  <Checkbox>3980/年
   <Card className="prucs"
     hoverable
     // style={{ width:160 }}
@@ -132,7 +141,8 @@ const tabListNoTitle = [
     影像云储存600张
     面型分析
     侧位片、侧面照重叠"/>
-  </Card></p>
+  </Card></Checkbox>
+  </p>
   <Button type="primary">购买</Button>
     </p>
     ,

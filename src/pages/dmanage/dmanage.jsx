@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import { Card ,Popover,Button} from 'antd';
-import { Table, Tag, Space,List,card,Layout  ,Typography} from 'antd';
+import { Table, Tag, Space,List,card,Layout  ,Typography,Collapse } from 'antd';
 import { Descriptions } from 'antd';
-import { RollbackOutlined,PlusOutlined } from '@ant-design/icons';
+import { FolderOutlined,RollbackOutlined,PlusOutlined,DeleteOutlined } from '@ant-design/icons';
 import './dmanage.less'
 import logo from '../images/logo.svg'
 import help from '../images/帮助.svg'
@@ -10,16 +10,15 @@ import messag from '../images/消息.svg'
 import shop from '../images/购买.svg'
 import me from '../images/me.png'
 import userimg from '../images/用户.svg'
-import skull from '../images/skull.svg'
-import face from '../images/face.svg'
-import teeth from '../images/teeth.svg'
-import sharptooth from '../images/sharptooth.svg'
-import brain from '../images/brain.svg'
 import wechat from '../images/wechat.png'
-
-
 import Userinfo from '../userinfo/userinfo'
 import Shopping from '../shopping/shopping'
+
+const { Panel } = Collapse;
+
+const text1 = `
+  2021/7/16  18岁
+`;
 const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 const content = (
@@ -57,6 +56,12 @@ const data = [
 ];
 
 export default class Dmanage extends Component {
+  state = {
+    patientSex:"男",
+    patientId:"5bf3e196",
+    patientBirth:"2002-10-10",
+    patientName:"患者1",
+  };
 render () {
 return (<div>
     <div className="dmanage">
@@ -83,16 +88,42 @@ return (<div>
           
           <div className="dmanage-funcs">
         <span className="dmanage-funcs-header">
-        <Descriptions>
-        <Descriptions.Item label="姓名"   className="dmanage-funcs-header-item">Zo</Descriptions.Item>
-        <Descriptions.Item label="性别"   className="dmanage-funcs-header-item">18000</Descriptions.Item>
-        <Descriptions.Item label="患者ID"   className="dmanage-funcs-header-item">Hang</Descriptions.Item>
-        <Descriptions.Item label="出生日期"   className="dmanage-funcs-header-item">empty</Descriptions.Item>
-        </Descriptions>
-        <a href="/fmanage"><button><RollbackOutlined />患者管理</button></a>
+        <font color="white">姓名：{this.state.patientName} 性别：{this.state.patientSex} 患者ID：{this.state.patientId} 出生日期：{this.state.patientBirth}</font>
+        <a href="/fmanage"><button><RollbackOutlined /><font size="2">患者管理</font></button></a>
         </span>
-        <button><PlusOutlined />新建</button>
+        
 
+
+
+        <div className="dmanage-funcs-navi">
+        
+        <Collapse accordion className="">
+        <Panel header="stage 1" key="1" >
+          <p><font size="1">{text1}</font></p>
+          <button><DeleteOutlined /></button>
+          <button><PlusOutlined /><font size='1'>新建</font></button>
+          <button><font size='1'><FolderOutlined />展示</font></button>
+        
+        </Panel>
+        <Panel header="stage 2" key="2">
+          <p><font size="1">{text1}</font></p>
+          <button><DeleteOutlined /></button>
+
+          <button><PlusOutlined />
+          <font size='1'>新建</font>
+          </button>
+
+          <button><font size='1'><FolderOutlined />展示</font></button>
+        </Panel>
+        <Panel header="stage 3" key="3" >
+          <p><font size="1">empty</font></p>
+          <button><DeleteOutlined /></button>
+          <button><PlusOutlined /><font size='1'>新建</font>
+        </button>
+        <button><font size='1'><FolderOutlined />展示</font></button>
+        </Panel>
+  </Collapse>
+        </div>
         </div>
 
         </div>
